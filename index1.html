@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux Anniversaire Aya! 😺</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Comic+Neue:wght@700&display=swap');
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .cats-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .floating-cat {
+            position: absolute;
+            font-size: 3em;
+            animation: floatCats 10s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        @keyframes floatCats {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(50vh) translateX(30px) rotate(10deg);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(168, 237, 234, 0.5);
+            max-width: 900px;
+            animation: bounceIn 1.5s ease-out;
+            border: 4px solid #fed6e3;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) rotate(-10deg);
+            }
+            50% {
+                transform: scale(1.05) rotate(2deg);
+            }
+            70% {
+                transform: scale(0.95) rotate(-1deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        h1 {
+            font-family: 'Comic Neue', cursive;
+            font-size: 3.5em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            animation: wiggle 2s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% {
+                transform: rotate(-3deg);
+            }
+            50% {
+                transform: rotate(3deg);
+            }
+        }
+
+        .name {
+            font-family: 'Comic Neue', cursive;
+            font-size: 5.5em;
+            color: #ff6b9d;
+            font-weight: bold;
+            margin: 30px 0;
+            text-shadow: 4px 4px 0px #a8edea;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.05);
+            }
+        }
+
+        .big-cat {
+            font-size: 6em;
+            margin: 30px 0;
+            animation: dance 2s ease-in-out infinite;
+            display: inline-block;
+            filter: drop-shadow(0 5px 15px rgba(102, 126, 234, 0.3));
+        }
+
+        @keyframes dance {
+            0%, 100% {
+                transform: rotate(-10deg) translateY(0);
+            }
+            25% {
+                transform: rotate(10deg) translateY(-10px);
+            }
+            50% {
+                transform: rotate(-10deg) translateY(0);
+            }
+            75% {
+                transform: rotate(10deg) translateY(-10px);
+            }
+        }
+
+        .message {
+            font-size: 2.2em;
+            color: #667eea;
+            margin: 30px 0;
+            font-weight: 600;
+            animation: rainbow 3s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% { color: #667eea; }
+            25% { color: #ff6b9d; }
+            50% { color: #764ba2; }
+            75% { color: #f093fb; }
+            100% { color: #667eea; }
+        }
+
+        .compliments {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .compliment {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #764ba2;
+            padding: 18px 28px;
+            border-radius: 25px;
+            font-size: 1.4em;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+            animation: pop 3s ease-in-out infinite;
+            animation-delay: calc(var(--i) * 0.2s);
+            border: 3px solid white;
+        }
+
+        @keyframes pop {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                transform: scale(1.1) rotate(5deg);
+            }
+        }
+
+        .fun-icon {
+            font-size: 3em;
+            display: inline-block;
+            animation: spin 3s linear infinite;
+            margin: 0 15px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                transform: rotate(180deg) scale(1.2);
+            }
+            100% {
+                transform: rotate(360deg) scale(1);
+            }
+        }
+
+        .wish {
+            font-size: 1.7em;
+            color: #667eea;
+            margin-top: 40px;
+            line-height: 1.8;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(168, 237, 234, 0.2) 0%, rgba(254, 214, 227, 0.2) 100%);
+            border-radius: 25px;
+            border: 3px dashed #ff6b9d;
+            font-weight: 500;
+        }
+
+        .sparkle {
+            display: inline-block;
+            animation: twinkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.3;
+                transform: scale(1.5);
+            }
+        }
+
+        .divider {
+            width: 70%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff6b9d, #667eea, transparent);
+            margin: 30px auto;
+        }
+
+        .interactive-cat {
+            font-size: 4em;
+            cursor: pointer;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .interactive-cat:hover {
+            transform: scale(1.3) rotate(20deg);
+        }
+
+        .paw-prints {
+            position: absolute;
+            font-size: 1.5em;
+            opacity: 0;
+            animation: pawPrint 2s ease-out forwards;
+        }
+
+        @keyframes pawPrint {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+        }
+
+        .song-section {
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(254, 214, 227, 0.1) 100%);
+            border-radius: 25px;
+            border: 3px solid #a8edea;
+        }
+
+        .play-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        .play-button:active {
+            transform: scale(0.95);
+        }
+
+        .lyrics {
+            margin-top: 30px;
+            font-size: 1.4em;
+            line-height: 2;
+        }
+
+        .lyric-line {
+            opacity: 0;
+            animation: fadeInLyric 0.8s ease-in forwards;
+            margin: 10px 0;
+            color: #764ba2;
+            font-weight: 600;
+        }
+
+        .lyric-line:nth-child(1) { animation-delay: 0.2s; }
+        .lyric-line:nth-child(2) { animation-delay: 0.5s; }
+        .lyric-line:nth-child(3) { animation-delay: 0.8s; }
+        .lyric-line:nth-child(4) { animation-delay: 1.1s; }
+        .lyric-line:nth-child(6) { animation-delay: 1.4s; }
+        .lyric-line:nth-child(7) { animation-delay: 1.7s; }
+        .lyric-line:nth-child(8) { animation-delay: 2s; }
+        .lyric-line:nth-child(9) { animation-delay: 2.3s; }
+        .lyric-line:nth-child(11) { animation-delay: 2.8s; font-size: 1.3em; }
+
+        @keyframes fadeInLyric {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cats-background" id="catsContainer"></div>
+    
+    <div class="container">
+        <div>
+            <span class="fun-icon">🎉</span>
+            <span class="fun-icon">✨</span>
+            <span class="fun-icon">🎊</span>
+        </div>
+        
+        <h1>🎈 Joyeux Anniversaire! 🎈</h1>
+        
+        <div class="divider"></div>
+        
+        <div class="name">AYA</div>
+        
+        <div class="big-cat interactive-cat" onclick="meow()">😺</div>
+        
+        <div class="message">
+            <span class="sparkle">✨</span> You are FANTASTIC! <span class="sparkle">✨</span>
+        </div>
+        
+        <div class="compliments">
+           
+            <div class="compliment" style="--i: 2">🎨 Creative Soul</div>
+            <div class="compliment" style="--i: 3">😄 Super Fun</div>
+            <div class="compliment" style="--i: 4">💫 Incredible</div>
+            <div class="compliment" style="--i: 5"> Awesome</div>
+            <div class="compliment" style="--i: 6">⭐ Wonderful</div>
+        </div>
+        
+        <div style="margin: 40px 0;">
+            <span class="interactive-cat" onclick="createPawPrints(event)">🐱</span>
+            <span class="interactive-cat" onclick="createPawPrints(event)">😸</span>
+            <span class="interactive-cat" onclick="createPawPrints(event)">😻</span>
+            <span class="interactive-cat" onclick="createPawPrints(event)">😹</span>
+        </div>
+        
+        <div class="wish">
+            🎂 Que cette journée soit remplie de bonheur! 🎂<br>
+            Tu es une amie extraordinaire 😺<br>
+            Keep shining and being awesome! 🌟<br>
+            <br>
+            <strong>Les meilleurs moments sont encore à venir! 🎉</strong>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- Chanson d'anniversaire -->
+        <div class="song-section">
+            <h2 style="color: #667eea; font-size: 2em; margin-bottom: 20px;">🎵 Une chanson pour toi! 🎵</h2>
+            <button class="play-button" onclick="toggleSong()">
+                <span id="playIcon">▶️</span> Jouer la chanson
+            </button>
+            <div class="lyrics" id="lyrics" style="display: none;">
+                <p class="lyric-line">🎶 Joyeux anniversaire Aya 🎶</p>
+                <p class="lyric-line">✨ Une amie fantastique et unique ✨</p>
+                <p class="lyric-line">🌟 Avec ton sourire qui illumine 🌟</p>
+                <p class="lyric-line">🎉 Chaque jour devient magique 🎉</p>
+                <br>
+                <p class="lyric-line">😺 Les chats dansent pour toi 😺</p>
+                <p class="lyric-line">🎈 Les ballons s'envolent de joie 🎈</p>
+                <p class="lyric-line">💫 Tu mérites le meilleur 💫</p>
+                <p class="lyric-line">🎂 Aujourd'hui c'est ta fête! 🎂</p>
+                <br>
+                <p class="lyric-line"><strong>🎊 JOYEUX ANNIVERSAIRE AYA! 🎊</strong></p>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div style="margin-top: 30px;">
+            <span class="fun-icon">🎁</span>
+            <span class="fun-icon">🍰</span>
+            <span class="fun-icon">🎈</span>
+        </div>
+    </div>
+
+    <script>
+        // Créer des chats flottants en arrière-plan
+        const catsContainer = document.getElementById('catsContainer');
+        const catEmojis = ['😺', '😸', '😻', '😹', '😼', '🐱', '🐈'];
+        
+        function createFloatingCat() {
+            const cat = document.createElement('div');
+            cat.className = 'floating-cat';
+            cat.textContent = catEmojis[Math.floor(Math.random() * catEmojis.length)];
+            cat.style.left = Math.random() * 100 + '%';
+            cat.style.animationDelay = Math.random() * 5 + 's';
+            cat.style.fontSize = (Math.random() * 2 + 2) + 'em';
+            catsContainer.appendChild(cat);
+            
+            setTimeout(() => {
+                cat.remove();
+            }, 10000);
+        }
+        
+        // Créer des chats régulièrement
+        setInterval(createFloatingCat, 2000);
+        
+        // Créer quelques chats au début
+        for (let i = 0; i < 8; i++) {
+            setTimeout(createFloatingCat, i * 500);
+        }
+        
+        // Son de miaulement (visuel)
+        function meow() {
+            const bigCat = document.querySelector('.big-cat');
+            const originalText = bigCat.textContent;
+            const meowSounds = ['😺', '😸', '😻', '😹', '🙀'];
+            
+            let counter = 0;
+            const meowInterval = setInterval(() => {
+                bigCat.textContent = meowSounds[counter % meowSounds.length];
+                counter++;
+                
+                if (counter >= 6) {
+                    clearInterval(meowInterval);
+                    bigCat.textContent = originalText;
+                }
+            }, 200);
+        }
+        
+        // Créer des empreintes de pattes
+        function createPawPrints(event) {
+            const paw = document.createElement('div');
+            paw.className = 'paw-prints';
+            paw.textContent = '🐾';
+            paw.style.position = 'fixed';
+            paw.style.left = event.clientX + 'px';
+            paw.style.top = event.clientY + 'px';
+            paw.style.pointerEvents = 'none';
+            document.body.appendChild(paw);
+            
+            setTimeout(() => {
+                paw.remove();
+            }, 2000);
+        }
+        
+        // Ajouter des confettis au clic
+        document.querySelector('.container').addEventListener('click', (e) => {
+            if (!e.target.classList.contains('interactive-cat')) {
+                const confettiColors = ['#667eea', '#764ba2', '#ff6b9d', '#a8edea', '#fed6e3'];
+                const confetti = document.createElement('div');
+                confetti.style.position = 'fixed';
+                confetti.style.left = e.clientX + 'px';
+                confetti.style.top = e.clientY + 'px';
+                confetti.style.fontSize = '2em';
+                confetti.textContent = ['✨', '🎉', '⭐', '💫', '🌟'][Math.floor(Math.random() * 5)];
+                confetti.style.pointerEvents = 'none';
+                confetti.style.animation = 'pawPrint 1s ease-out forwards';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 1000);
+            }
+        });
+        
+        // Fonction pour jouer/arrêter la chanson
+        let isPlaying = false;
+        function toggleSong() {
+            const lyrics = document.getElementById('lyrics');
+            const playIcon = document.getElementById('playIcon');
+            const button = document.querySelector('.play-button');
+            
+            if (!isPlaying) {
+                lyrics.style.display = 'block';
+                playIcon.textContent = '⏸️';
+                button.innerHTML = '<span id="playIcon">⏸️</span> Pause la chanson';
+                isPlaying = true;
+                
+                // Créer des notes de musique flottantes
+                createMusicNotes();
+            } else {
+                lyrics.style.display = 'none';
+                playIcon.textContent = '▶️';
+                button.innerHTML = '<span id="playIcon">▶️</span> Jouer la chanson';
+                isPlaying = false;
+            }
+        }
+        
+        // Créer des notes de musique animées
+        function createMusicNotes() {
+            const notes = ['🎵', '🎶', '🎼', '🎤'];
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const note = document.createElement('div');
+                    note.textContent = notes[Math.floor(Math.random() * notes.length)];
+                    note.style.position = 'fixed';
+                    note.style.left = Math.random() * window.innerWidth + 'px';
+                    note.style.top = window.innerHeight + 'px';
+                    note.style.fontSize = '3em';
+                    note.style.pointerEvents = 'none';
+                    note.style.zIndex = '1000';
+                    note.style.animation = 'floatUp 3s ease-out forwards';
+                    document.body.appendChild(note);
+                    
+                    setTimeout(() => note.remove(), 3000);
+                }, i * 300);
+            }
+        }
+        
+        // Animation pour les notes de musique
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
